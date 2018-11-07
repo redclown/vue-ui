@@ -29,43 +29,7 @@
         --color-white: #fff;
     }
 </style>
-<style>
-    .gk-button {
-        height: var(--button-height);
-        padding: 0 12px;
-        font-size: var(--font-size);
-        line-height: var(--line-height);
-        border: none;
-        border-radius: var(--border-radius);
-        color: var(--color-white);
-        background: var(--color);
-        cursor: pointer;
-    }
-    .gk-button:hover {
-        background: var(--hover-color);
-    }
-    .gk-button:active {
-        background: var(--active-color);
-    }
-    .gk-button:focus {
-        outline: none;
-    }
-</style>
 <body>
-<div id="app">
-    <gk-button></gk-button>
-</div>
-<div>
-</div>
-    <script src="node_modules/vue/dist/vue.min.js"></script>
-    <script src="button.js"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                message: 'Hello, world !!'
-            }
-        })
-    </script>
+    <div id="app"></div>
 </body>
 </html>
