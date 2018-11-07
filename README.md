@@ -1,4 +1,4 @@
 # a vue ui demo
-### author realstone
+### author: realstone
 
-
+## default: box-sizing: border-box;

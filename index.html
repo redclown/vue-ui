@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    #app {
+        margin: 50px;
+    }
+    :root {
+        --color: rgb(0, 82, 205);
+
+        --font-size: 14px;
+        --line-height: 32px;
+
+        --border-radius: 3px;
+
+        --button-height: 32px;
+
+        --color-white: #fff;
+    }
+</style>
+<style>
+    .gk-button {
+        height: var(--button-height);
+        padding: 0 12px;
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+        border: none;
+        border-radius: var(--border-radius);
+        color: var(--color-white);
+        background: var(--color);
+        cursor: pointer;
+    }
+    .gk-button:hover {
+        background: #fff;
+    }
+</style>
+<body>
+<div id="app">
+    <gk-button></gk-button>
+</div>
+<div>
+</div>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="button.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello, world !!'
+            }
+        })
+    </script>
+</body>
+</html>
