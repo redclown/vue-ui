@@ -16,6 +16,8 @@
     }
     :root {
         --color: rgb(0, 82, 205);
+        --hover-color: rgb(0, 100, 255);
+        --active-color: rgb(5, 70, 165);
 
         --font-size: 14px;
         --line-height: 32px;
@@ -40,7 +42,13 @@
         cursor: pointer;
     }
     .gk-button:hover {
-        background: #fff;
+        background: var(--hover-color);
+    }
+    .gk-button:active {
+        background: var(--active-color);
+    }
+    .gk-button:focus {
+        outline: none;
     }
 </style>
 <body>
