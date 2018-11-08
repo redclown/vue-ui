@@ -1,8 +1,6 @@
 <template>
     <button class="gk-button" type="button" :class="{[`icon-${iconPosition}`]: true}">
-        <svg v-if="icon" class="icon" aria-hidden="true">
-            <use :xlink:href=`#icon-${icon}`></use>
-        </svg>
+        <gk-icon v-if="icon" :name="icon"></gk-icon>
         <span class="icon-content">
             <slot></slot>
         </span>
@@ -42,13 +40,13 @@
         &:hover { background: var(--hover-color);}
         &:active { background: var(--active-color);}
         &:focus { outline: none;}
-        > .icon {
+        > .gk-icon {
             order: 1;
             margin-right: .2em;
         }
         > .icon-content { order: 2; }
         &.icon-right {
-            > .icon {
+            > .gk-icon {
                 order: 2;
                 margin-left: .2em;
                 margin-right: 0;
