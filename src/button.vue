@@ -1,6 +1,6 @@
 <template>
     <button class="gk-button" type="button" :class="{[`icon-${iconPosition}`]: true}">
-        <gk-icon v-if="icon" :name="icon"></gk-icon>
+        <gk-icon  class="loading" v-if="icon" :name="icon"></gk-icon>
         <span class="icon-content">
             <slot></slot>
         </span>
@@ -23,6 +23,10 @@
 </script>
 
 <style lang="scss">
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
     .gk-button {
         display: inline-flex;
         justify-content: center;
@@ -52,6 +56,9 @@
                 margin-right: 0;
             }
             > .icon-content { order: 1; }
+        }
+        .loading {
+            animation: spin .87s infinite linear;
         }
     }
 
