@@ -1,6 +1,8 @@
 <template>
-    <button class="gk-button" type="button" :class="{[`icon-${iconPosition}`]: true}">
-        <gk-icon  class="loading" v-if="icon" :name="icon"></gk-icon>
+    <button class="gk-button" type="button" :class="{[`icon-${iconPosition}`]: true}"
+        @click="$emit('click')">
+        <gk-icon v-if="icon && !loading" :name="icon"></gk-icon>
+        <gk-icon v-if="loading" class="loading" name="reload"></gk-icon>
         <span class="icon-content">
             <slot></slot>
         </span>
@@ -17,6 +19,10 @@
                 validator (value) {
                     return value === 'left' || value === 'right';
                 }
+            },
+            loading: {
+                type: Boolean,
+                default: false
             }
         }
     }

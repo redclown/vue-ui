@@ -6,5 +6,8 @@ Vue.component('gk-button', Button);
 Vue.component('gk-icon', Icon);
 
 new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        loading1: false
+    }
 });

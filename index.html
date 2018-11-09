@@ -27,9 +27,9 @@
 </style>
 <body>
     <div id="app">
-        <gk-button icon="setting">确定按钮</gk-button>
-        <gk-button icon="right" icon-position="right">取消</gk-button>
-        <gk-button icon="reload">确定</gk-button>
+        <gk-button :loading="loading1" @click="loading1 = !loading1">确定按钮</gk-button>
+        <gk-button icon="like" icon-position="right">取消</gk-button>
+        <gk-button :loading="loading1" icon="download" @click="loading1 = !loading1">确定</gk-button>
     </div>
     <script src="src/app.js"></script>
     <script src="//at.alicdn.com/t/font_862086_why03b8f1eb.js"></script>
