@@ -67,5 +67,4 @@
             animation: spin .87s infinite linear;
         }
     }
-
 </style>

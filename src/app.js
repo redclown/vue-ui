@@ -13,3 +13,83 @@ new Vue({
         loading1: true
     }
 });
+
+import chai from 'chai';
+const expect = chai.expect;
+
+// unit test
+{
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+        propsData: {
+            icon: 'download'
+        }
+    });
+    vm.$mount();
+    let useElement = vm.$el.querySelector('use');
+    let href = useElement.getAttribute('xlink:href');
+    expect(href).to.eq('#icon-download');
+    vm.$destroy();
+}
+{
+    const Constructor = Vue.extend(Button);
+    const button = new Constructor({
+        propsData: {
+            icon: 'download',
+            loading: true
+        }
+    });
+    button.$mount();
+    let useElement = button.$el.querySelector('use');
+    let href = useElement.getAttribute('xlink:href');
+    expect(href).to.eq('#icon-reload');
+    button.$destroy();
+}
+{
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    const Constructor = Vue.extend(Button);
+    const button = new Constructor({
+        propsData: {
+            icon: 'download'
+        }
+    });
+    button.$mount(div);
+    let svg = button.$el.querySelector('svg');
+    let {order} = window.getComputedStyle(svg);
+    expect(order).to.eq('1');
+    button.$el.remove();
+    button.$destroy();
+}
+{
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    const Constructor = Vue.extend(Button);
+    const button = new Constructor({
+        propsData: {
+            icon: 'right',
+            iconPosition: 'right'
+        }
+    });
+    button.$mount(div);
+    let svg = button.$el.querySelector('svg');
+    let {order} = window.getComputedStyle(svg);
+    expect(order).to.eq('2');
+    button.$el.remove();
+    button.$destroy();
+}
+{
+    // mock
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    const Constructor = Vue.extend(Button);
+    const button = new Constructor({
+        propsData: {
+            icon: 'right',
+            iconPosition: 'right'
+        }
+    });
+    button.$mount();
+
+    button.$destroy();
+}
