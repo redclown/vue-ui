@@ -15,6 +15,8 @@ new Vue({
 });
 
 import chai from 'chai';
+import spies from 'chai-spies';
+chai.use(spies);
 const expect = chai.expect;
 
 // unit test
@@ -80,16 +82,17 @@ const expect = chai.expect;
 }
 {
     // mock
-    const div = document.createElement('div');
-    document.body.appendChild(div);
     const Constructor = Vue.extend(Button);
-    const button = new Constructor({
+    const vm = new Constructor({
         propsData: {
-            icon: 'right',
-            iconPosition: 'right'
+            icon: 'right'
         }
     });
-    button.$mount();
-
-    button.$destroy();
+    vm.$mount();
+    let spy = chai.spy(function(){});
+    vm.$on('click', spy);
+    let button = vm.$el;
+    button.click();
+    expect(spy).to.have.been.called();
+    vm.$destroy();
 }
