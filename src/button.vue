@@ -10,7 +10,12 @@
 </template>
 
 <script>
+    import Icon from './icon';
+
     export default {
+        components: {
+            'gk-icon': Icon
+        },
         props: {
             icon: {},
             iconPosition: {

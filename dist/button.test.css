@@ -1,0 +1,56 @@
+.gk-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.gk-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  height: var(--button-height);
+  padding: 0 12px;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--color-white);
+  background: var(--color);
+  cursor: pointer;
+}
+.gk-button:hover {
+  background: var(--hover-color);
+}
+.gk-button:active {
+  background: var(--active-color);
+}
+.gk-button:focus {
+  outline: none;
+}
+.gk-button > .gk-icon {
+  order: 1;
+  margin-right: 0.2em;
+}
+.gk-button > .icon-content {
+  order: 2;
+}
+.gk-button.icon-right > .gk-icon {
+  order: 2;
+  margin-left: 0.2em;
+  margin-right: 0;
+}
+.gk-button.icon-right > .icon-content {
+  order: 1;
+}
+.gk-button .loading {
+  animation: spin 0.87s infinite linear;
+}
